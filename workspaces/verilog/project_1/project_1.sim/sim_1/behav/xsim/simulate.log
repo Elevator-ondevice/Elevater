@@ -1,0 +1,15 @@
+Time resolution is 1 ps
+At time                    0: rst_n = 0, d_out = 000, done_sig = 00
+At time                20000: rst_n = 1, d_out = 000, done_sig = 00
+At time                25000: rst_n = 1, d_out = 001, done_sig = 01
+At time                35000: rst_n = 1, d_out = 010, done_sig = 01
+At time                45000: rst_n = 1, d_out = 100, done_sig = 01
+At time                55000: rst_n = 1, d_out = 001, done_sig = 01
+At time                65000: rst_n = 1, d_out = 010, done_sig = 01
+At time                75000: rst_n = 1, d_out = 100, done_sig = 01
+At time                85000: rst_n = 1, d_out = 001, done_sig = 01
+At time                95000: rst_n = 1, d_out = 010, done_sig = 01
+At time               105000: rst_n = 1, d_out = 100, done_sig = 01
+At time               115000: rst_n = 1, d_out = 001, done_sig = 01
+Simulation Finished!
+$finish called at time : 120 ns : File "/home/user15/workspaces/verilog/project_1/project_1.srcs/sim_1/new/tb_test.v" Line 38
