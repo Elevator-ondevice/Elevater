@@ -1,41 +1,59 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include "button.h"
 
+void uart0_init(){
+
+    UCSR0A |= (1 << U2X0);                          // U2X mode set
+    UCSR0B |= (1 << RXEN0) | (1 << TXEN0);          // Set enable recieve and transmit 
+    UCSR0C |= (1 << UCSZ01) | (1 << UCSZ00);        // Set 8bits mode, no parity bit, one stop bit
+    UBRR0H = 0; 
+    UBRR0L = 207;                                   // bitrates : 9600pbs
+}
+
+
+void uart0_transmit(char data){
+
+    while(!(UCSR0A & (1 << UDRE0)));                // 송신이 가능한지, UDR이 비어있는지
+    UDR0 = data;
+}
+
+unsigned uart0_receive(void){
+
+    while(!(UCSR0A & (1 << RXC0)));
+    return UDR0;
+}
 int main(){
 
-    
-    DDRB |= (1 << PB5); // PB5를 출력으로 설정
-    TCCR1A |= (1 << COM1A1) | (1 << WGM11); // 비반전 모드, Fast PWM 모드
-    TCCR1B |= (1 << WGM13) | (1 << WGM12) | (1 << CS11) | (1 << CS10); // Fast PWM
-    TCCR1C = 0;
+    uart0_init();
 
-    BUTTON MtrOn;
-    BUTTON MtrOff;
-    BUTTON MtrToggle;
-
-
-    
-    //OCR1A = 499; // 10% 듀티 사이클 (ICR1의 25%)
-    ICR1 = 4999; 
-    
     while(1){
-        OCR1A = 125; // 10% 듀티 사이클
-        _delay_ms(1000); // 1초 대기
-        OCR1A = 375;
-        _delay_ms(1000); // 1초 대기
-        OCR1A = 625;
-        _delay_ms(1000); // 1초 대기
-        OCR1A = 375;
-        _delay_ms(1000); // 1초 대기
-
+        uart0_transmit(uart0_receive());
     }
 }
 
 
 
 
-// 16bit PWM Motor Control
+//fnd Code
+// int main(){
+//     uint8_t fndnumber[] ={
+//         0x3f, 0x06, 0x5B,0x4F, 0x66, 0x6D, 0x7D, 0x27, 0x7F, 0x67
+//     };
+
+//     int count = 0;
+//     DDRC = 0xFF;
+
+//     while(1){
+//         PORTC = fndnumber[count];       //fnd 연결 포트 
+//         count = (count + 1) % 10;
+//         _delay_ms(500);
+
+//     }
+// }
+
+
+
+//DC motor (speen angle)
 // int main(){
 
 //     DDRB |= (1 << PB5); // PB5를 출력으로 설정
@@ -47,15 +65,12 @@ int main(){
 //     ICR1 = 4999; 
     
 //     while(1){
-//         OCR1A = 125; // 10% 듀티 사이클
-//         _delay_ms(1000
-//         ); // 1초 대기
-//         OCR1A = 375;
-//         _delay_ms(1000); // 1초 대기
-//         OCR1A = 625;
+//         OCR1A = 500; // 10% 듀티 사이클
 //         _delay_ms(1000); // 1초 대기
 //         OCR1A = 375;
 //         _delay_ms(1000); // 1초 대기
+//         //OCR1A = 2375;
+//          //_delay_ms(1000); // 1초 대기
 
 //     }
 // }
