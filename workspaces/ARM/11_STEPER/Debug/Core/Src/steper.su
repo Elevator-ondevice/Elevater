@@ -1,0 +1,3 @@
+../Core/Src/steper.c:18:6:stepMotor	16	static
+../Core/Src/steper.c:26:6:rotateSteps	24	static
+../Core/Src/steper.c:45:6:rotateDegrees	24	static

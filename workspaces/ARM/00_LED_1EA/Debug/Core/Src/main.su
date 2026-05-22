@@ -1,0 +1,8 @@
+../Core/Src/main.c:86:5:main	16	static
+../Core/Src/main.c:145:6:SystemClock_Config	88	static
+../Core/Src/main.c:183:6:ledinit	16	static
+../Core/Src/main.c:188:6:ledOn	16	static
+../Core/Src/main.c:193:6:ledOff	16	static
+../Core/Src/main.c:198:6:ledShift	24	static
+../Core/Src/main.c:205:6:led_rev_Shift	24	static
+../Core/Src/main.c:218:6:Error_Handler	4	static,ignoring_inline_asm

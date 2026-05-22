@@ -1,0 +1,8 @@
+../Core/Src/lcd_8bit.c:4:6:LCD_Data	16	static
+../Core/Src/lcd_8bit.c:18:6:LCD_EnablePin	8	static
+../Core/Src/lcd_8bit.c:32:6:LCD_WriteCommand	16	static
+../Core/Src/lcd_8bit.c:40:6:LCD_WriteData	16	static
+../Core/Src/lcd_8bit.c:48:6:LCD_GotoXY	24	static
+../Core/Src/lcd_8bit.c:61:6:LCD_WriteString	16	static
+../Core/Src/lcd_8bit.c:70:6:LCD_WriteStringXY	16	static
+../Core/Src/lcd_8bit.c:77:6:LCD_Init	8	static

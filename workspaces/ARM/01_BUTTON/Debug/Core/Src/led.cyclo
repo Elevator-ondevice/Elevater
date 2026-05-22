@@ -1,0 +1,5 @@
+../Core/Src/led.c:24:6:ledOn	2
+../Core/Src/led.c:32:6:ledOff	2
+../Core/Src/led.c:40:6:ledinit	2
+../Core/Src/led.c:55:6:ledShift	2
+../Core/Src/led.c:62:6:led_rev_Shift	2
